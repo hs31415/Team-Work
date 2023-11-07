@@ -1,0 +1,4 @@
+repository "a simple game@wechat_os_qy02kiy5cot5f7juluitsryoe@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
