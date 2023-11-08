@@ -12,7 +12,7 @@ public class AutoMoveToTarget : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
-        navMeshAgent.updateUpAxis = false;
+        navMeshAgent.updateUpAxis = false;//禁止xy轴翻转，避免2d物体旋转后不可见
         SetDestination();
     }
 
