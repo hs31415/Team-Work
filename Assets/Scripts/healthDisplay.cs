@@ -27,6 +27,10 @@ public class HealthDisplay : MonoBehaviour
 
     void UpdateHealthDisplay(float health)
     {
+        if (health == objectHealth.initialHealth)
+        {
+            return;
+        }
         Debug.Log("healthBarInstance: " + healthBarInstance);
         Debug.Log("生命值改变");
         float healthPercentage = (float)health / objectHealth.initialHealth; // 计算当前生命值的百分比
