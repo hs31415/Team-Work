@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.h8man.2d.navmeshplus": "file:D:/dload/NavMeshPlus",
+    "com.h8man.2d.navmeshplus": "file:Packages/NavMeshPlus",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.2d": "2.0.0",
