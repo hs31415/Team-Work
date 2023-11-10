@@ -4,11 +4,18 @@ public class SpawnAndMove : MonoBehaviour
 {
     public GameObject prefab; // 预设体
     public Transform target; // 目标位置
-
+    public void SetPrefab(GameObject newPrefab)
+    {
+        prefab = newPrefab;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // 当鼠标左键点击时
         {
+            if (prefab.name == "obj0")
+            {
+                return;
+            }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // 从鼠标点击位置发射一条射线
             RaycastHit hitInfo;
 
