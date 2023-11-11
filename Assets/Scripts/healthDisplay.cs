@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
 {
-    public ObjectHealth objectHealth; // 对应的ObjectHealth组件
+    public ObjectState objectHealth; // 对应的ObjectHealth组件
     public GameObject HealthBarBackground; // 血条预设体
     private GameObject healthBarInstance; // 实例化的血条对象
 

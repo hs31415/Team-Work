@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7344602954943580797}
   - component: {fileID: 2626855714866147451}
   - component: {fileID: 971327214105810110}
-  - component: {fileID: -7669855784053040895}
-  - component: {fileID: -1574371358682337156}
+  - component: {fileID: -3007311781680477812}
+  - component: {fileID: 220132187070021536}
   m_Layer: 0
   m_Name: obj1
   m_TagString: Untagged
@@ -197,7 +197,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5458951425350613576}
   m_CullTransparentMesh: 1
---- !u!114 &-7669855784053040895
+--- !u!114 &-3007311781680477812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,11 +206,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5458951425350613576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c49523c0c3cbfe42961c84c6ea2e436, type: 3}
+  m_Script: {fileID: 11500000, guid: 92428efe5c026cd41857a52aed519a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 3
---- !u!114 &-1574371358682337156
+  moveSpeed: 1
+  cost: 1
+  attackRange: 5
+  attackPrefab: {fileID: 804831201742608621, guid: 1fb8d83e668092d46b52891bf1764cd7, type: 3}
+  attackInterval: 1
+--- !u!114 &220132187070021536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,5 +227,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392bef8d379b6404ba1f2f820fd19550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectHealth: {fileID: -7669855784053040895}
+  objectHealth: {fileID: -3007311781680477812}
   HealthBarBackground: {fileID: 7441471260375839134, guid: 1aaaeb9654d82244b83f079a4bbbad62, type: 3}
