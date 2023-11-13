@@ -4,14 +4,16 @@ using TMPro;
 public class SquareClickHandler : MonoBehaviour
 {
     public TextAsset jsonFile; // 引用JSON文件的TextAsset
-
+    public GameObject prefab; // 预设体对象
+    public Canvas canvas; // Canvas对象的引用
+    private MyDataObject data;//卡牌信息
     void Start()
     {
         // 加载并解析JSON文件内容
         if (jsonFile != null)
         {
             string jsonText = jsonFile.text;
-            MyDataObject data = JsonUtility.FromJson<MyDataObject>(jsonText);
+            data = JsonUtility.FromJson<MyDataObject>(jsonText);
 
             // 输出JSON数据到控制台
             Debug.Log("Name: " + data.name);
@@ -61,7 +63,15 @@ public class SquareClickHandler : MonoBehaviour
             {
                 // 输出提示信息到控制台
                 Debug.Log("检测到点击");
+                // 实例化预设体
+                GameObject instance = Instantiate(prefab);
 
+                // 设置预设体中展示的信息
+                TextMeshProUGUI textMesh = instance.GetComponentInChildren<TextMeshProUGUI>();
+                if (textMesh != null)
+                {
+                    textMesh.text = "Name: " + data.name;
+                }
             }
         }
     }
