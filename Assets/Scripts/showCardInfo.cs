@@ -7,6 +7,8 @@ public class SquareClickHandler : MonoBehaviour
     public GameObject prefab; // 预设体对象
     public Canvas canvas; // Canvas对象的引用
     private MyDataObject data;//卡牌信息
+    private GameObject instance; // 声明instance为类级别变量
+    private bool isInstanceCreated = false; // 增加一个布尔变量用于跟踪预设体是否已经生成
     void Start()
     {
         // 加载并解析JSON文件内容
@@ -51,26 +53,41 @@ public class SquareClickHandler : MonoBehaviour
     }
     void Update()
     {
-        // 检测鼠标左键是否被点击
         if (Input.GetMouseButtonDown(0))
         {
-            // 将鼠标点击位置转换为世界坐标
             Vector2 clickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            // 检测点击是否在方块的碰撞框内
             Collider2D hit = Physics2D.OverlapPoint(clickPos);
-            if (hit != null && hit.gameObject == gameObject)
+            if (hit != null && hit.gameObject == gameObject)//如果点击的是卡牌
             {
-                // 输出提示信息到控制台
                 Debug.Log("检测到点击");
-                // 实例化预设体
-                GameObject instance = Instantiate(prefab);
-
-                // 设置预设体中展示的信息
-                TextMeshProUGUI textMesh = instance.GetComponentInChildren<TextMeshProUGUI>();
-                if (textMesh != null)
+                if (!isInstanceCreated) // 检查预设体是否已经生成
                 {
-                    textMesh.text = "Name: " + data.name;
+                    Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane);
+                    Vector3 worldCenter = Camera.main.ScreenToWorldPoint(screenCenter);
+
+                    instance = Instantiate(prefab, worldCenter, Quaternion.identity);
+
+                    TextMeshProUGUI textMesh = instance.GetComponentInChildren<TextMeshProUGUI>();
+                    if (textMesh != null)
+                    {
+                        textMesh.text = "卡牌名称: " + data.name + "\n攻击力: " + data.attack;
+                    }
+                    RectTransform rectTransform = instance.GetComponent<RectTransform>();
+                    if (rectTransform != null)
+                    {
+                        // 将预设体的posZ设置为-9
+                        rectTransform.position = new Vector3(rectTransform.position.x, rectTransform.position.y, -9f);
+                    }
+
+                    isInstanceCreated = true; // 设置预设体已经生成的状态为true
+                }
+            }
+            else
+            {
+                if (instance != null)
+                {
+                    Destroy(instance);
+                    isInstanceCreated = false; // 如果预设体被销毁，则将状态重置为false
                 }
             }
         }

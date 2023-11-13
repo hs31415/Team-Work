@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: 3b5f8a17a565cf84488bdf88939d54d4, type: 3}
-  prefab: {fileID: 3118301693996970514, guid: f2efc918ef32c294abb977a6f6665d21, type: 3}
+  prefab: {fileID: 166709386894782551, guid: 88268478d9ec9e64d8ba3ce895168644, type: 3}
   canvas: {fileID: 1650769462}
 --- !u!61 &2090491591
 BoxCollider2D:
