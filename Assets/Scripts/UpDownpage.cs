@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class InfoScene : MonoBehaviour
 {
-    public void GoToInfoScene1()
+    public void StartScene()
     {
         SceneManager.LoadScene("StartScene");
     }
 
-    public void GoToInfoScene2()
+    public void InfoScene2()
     {
-        SceneManager.LoadScene("Info2");
+        SceneManager.LoadScene("InfoScene2");
     }
 }
