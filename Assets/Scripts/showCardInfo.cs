@@ -19,6 +19,7 @@ public class SquareClickHandler : MonoBehaviour
 
             // 输出JSON数据到控制台
             Debug.Log("Name: " + data.name);
+            Debug.Log("Type: " + data.type);
             Debug.Log("attack: " + data.attack);
             Debug.Log("defense: " + data.defense);
             Debug.Log("attack_range: " + data.attack_range);
@@ -44,6 +45,7 @@ public class SquareClickHandler : MonoBehaviour
     public class MyDataObject
     {
         public string name;
+        public string type;
         public string attack;
         public string defense;
         public string attack_range;
@@ -69,8 +71,42 @@ public class SquareClickHandler : MonoBehaviour
 
                     TextMeshProUGUI textMesh = instance.GetComponentInChildren<TextMeshProUGUI>();
                     if (textMesh != null)
+
                     {
-                        textMesh.text = "卡牌名称: " + data.name + "\n攻击力: " + data.attack;
+                        if (data.type == "兵种") 
+                        {
+                            textMesh.text =
+                                "卡牌名称: " + data.name +"(" + data.type + ")"
+                                + "\n攻击力: " + data.attack 
+                                + "\n防御力: " + data.defense
+                                + "\n攻击范围: " + data.attack_range 
+                                + "\n移动速度: " + data.move_speed 
+                                + "\n费用: " + data.cost 
+                                + "\n描述: " + data.description;
+                        }
+                        else if (data.type == "法术")
+                        {
+                            textMesh.text =
+                                "卡牌名称: " + data.name + "(" + data.type + ")"
+                                + "\n攻击力: " + data.attack
+                                + "\n防御力: " + data.defense
+                                + "\n攻击范围: " + data.attack_range
+                                + "\n移动速度: " + data.move_speed
+                                + "\n费用: " + data.cost
+                                + "\n描述: " + data.description;
+                        }
+                            
+                        else if (data.type == "建筑")
+                        {
+                            textMesh.text =
+                                "卡牌名称: " + data.name + "(" + data.type + ")"
+                                + "\n攻击力: " + data.attack
+                                + "\n防御力: " + data.defense
+                                + "\n攻击范围: " + data.attack_range                               
+                                + "\n费用: " + data.cost
+                                + "\n描述: " + data.description;
+                        }
+
                     }
                     RectTransform rectTransform = instance.GetComponent<RectTransform>();
                     if (rectTransform != null)
@@ -81,6 +117,10 @@ public class SquareClickHandler : MonoBehaviour
 
                     isInstanceCreated = true; // 设置预设体已经生成的状态为true
                 }
+            }
+            else if (hit != null && hit.gameObject.name == "Square Variant(Clone)")
+            {
+
             }
             else
             {
