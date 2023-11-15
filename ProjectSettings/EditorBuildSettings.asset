@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InfoScene2.unity
     guid: fb020cc4e020e0547b8ade1c001c1f64
+  - enabled: 1
+    path: Assets/Scenes/NextScene.unity
+    guid: c808e2c2ba94ebc4a84461d126ef1455
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
