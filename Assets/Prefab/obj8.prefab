@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5822590280006251206}
   - component: {fileID: 4421886723389291021}
   - component: {fileID: 5127559233510132181}
+  - component: {fileID: 1235100638894013055}
   m_Layer: 0
   m_Name: obj8
   m_TagString: Untagged
@@ -209,13 +210,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92428efe5c026cd41857a52aed519a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialHealth: 3
-  moveSpeed: 8
+  initialHealth: 200
+  moveSpeed: 2
   cost: 8
-  attackRange: 8
+  attackRange: 4
   enmityRange: 10
+  attack: 40
+  defense: 0.7
   attackPrefab: {fileID: 804831201742608621, guid: 1fb8d83e668092d46b52891bf1764cd7, type: 3}
-  attackInterval: 1
+  attackInterval: 0.6
 --- !u!114 &5127559233510132181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +233,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHealth: {fileID: 4421886723389291021}
   HealthBarBackground: {fileID: 7441471260375839134, guid: 1aaaeb9654d82244b83f079a4bbbad62, type: 3}
+--- !u!114 &1235100638894013055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711276249705881380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4116281963783323080, guid: 238441379df352f4c8634ac67d16f6ee, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1

@@ -46,6 +46,7 @@ public class SpawnAndMove : MonoBehaviour
                     CostSystem costSystem = textObject.GetComponent<CostSystem>();
                     costSystem.currentCost -= objectState.cost;
                     costSystem.UpdateCostText();
+                    costSystem.UpdateCostSlider();
                     // 根据当前脚本所挂载的对象的标签，为生成的预设体添加对应的标签
                     if (this.gameObject.CompareTag("blueArea"))
                     {
