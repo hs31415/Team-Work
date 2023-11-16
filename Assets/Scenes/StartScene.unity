@@ -844,8 +844,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1290333360}
-        m_TargetAssemblyTypeName: skip, Assembly-CSharp
-        m_MethodName: SampleScene
+        m_TargetAssemblyTypeName: jump, Assembly-CSharp
+        m_MethodName: GameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChange : MonoBehaviour {
+public class jump : MonoBehaviour {
     public void SampleScene() {
         SceneManager.LoadScene("SampleScene");
     }

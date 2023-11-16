@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
 {
-    public ObjectHealth objectHealth; // 对应的ObjectHealth组件
+    public ObjectState objectHealth; // 对应的ObjectHealth组件
     public GameObject HealthBarBackground; // 血条预设体
     private GameObject healthBarInstance; // 实例化的血条对象
 
@@ -31,11 +31,8 @@ public class HealthDisplay : MonoBehaviour
         {
             return;
         }
-        Debug.Log("healthBarInstance: " + healthBarInstance);
-        Debug.Log("生命值改变");
         float healthPercentage = (float)health / objectHealth.initialHealth; // 计算当前生命值的百分比
         Transform fillTransform = healthBarInstance.transform.Find("healthFill"); // 获取血条实例中的填充长方形对象
-        Debug.Log("fillTransform: " + fillTransform);
         float initialWidth = 1; // 获取填充长方形对象的初始宽度
         float newWidth = initialWidth * healthPercentage; // 根据生命值百分比计算新的宽度
         Vector3 scale = fillTransform.localScale;
