@@ -73,15 +73,15 @@ public class SquareClickHandler : MonoBehaviour
                     if (textMesh != null)
 
                     {
-                        if (data.type == "兵种") 
+                        if (data.type == "兵种")
                         {
                             textMesh.text =
-                                "卡牌名称: " + data.name +"(" + data.type + ")"
-                                + "\n攻击力: " + data.attack 
+                                "卡牌名称: " + data.name + "(" + data.type + ")"
+                                + "\n攻击力: " + data.attack
                                 + "\n防御力: " + data.defense
-                                + "\n攻击范围: " + data.attack_range 
-                                + "\n移动速度: " + data.move_speed 
-                                + "\n费用: " + data.cost 
+                                + "\n攻击范围: " + data.attack_range
+                                + "\n移动速度: " + data.move_speed
+                                + "\n费用: " + data.cost
                                 + "\n描述: " + data.description;
                         }
                         else if (data.type == "法术")
@@ -95,14 +95,14 @@ public class SquareClickHandler : MonoBehaviour
                                 + "\n费用: " + data.cost
                                 + "\n描述: " + data.description;
                         }
-                            
+
                         else if (data.type == "建筑")
                         {
                             textMesh.text =
                                 "卡牌名称: " + data.name + "(" + data.type + ")"
                                 + "\n攻击力: " + data.attack
                                 + "\n防御力: " + data.defense
-                                + "\n攻击范围: " + data.attack_range                               
+                                + "\n攻击范围: " + data.attack_range
                                 + "\n费用: " + data.cost
                                 + "\n描述: " + data.description;
                         }
