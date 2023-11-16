@@ -4274,6 +4274,7 @@ MonoBehaviour:
   prefab: {fileID: 1647600381034238450, guid: 7f8ff33d2946a954b83387218e74c9eb, type: 3}
   target: {fileID: 581447433}
   textObject: {fileID: 1849974998}
+  canvas: {fileID: 1382938390}
   Cost: 0
 --- !u!212 &1383346311
 SpriteRenderer:
@@ -5562,6 +5563,7 @@ MonoBehaviour:
   prefab: {fileID: 1647600381034238450, guid: 7f8ff33d2946a954b83387218e74c9eb, type: 3}
   target: {fileID: 1728717756}
   textObject: {fileID: 1534247872}
+  canvas: {fileID: 1382938390}
   Cost: 0
 --- !u!65 &1953238354
 BoxCollider:
@@ -5856,6 +5858,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1382938391}
   - {fileID: 1326268798}
   - {fileID: 542145098}
+  - {fileID: 1382938391}
