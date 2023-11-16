@@ -5,6 +5,8 @@ public class AttackObject : MonoBehaviour
     private GameObject target;
     private float moveSpeed = 5f; // 移动速度
 
+    public float damage;
+
     public void SetTarget(GameObject newTarget)
     {
         target = newTarget;
@@ -31,10 +33,10 @@ public class AttackObject : MonoBehaviour
         if (collision.gameObject == target)
         {
             // 在这里处理攻击命中目标后的逻辑
-            ObjectState healthScript = target.GetComponent<ObjectState>();
-            if (healthScript != null)
+            ObjectState enemy = target.GetComponent<ObjectState>();
+            if (enemy != null)
             {
-                healthScript.DecreaseHealth();
+                enemy.DecreaseHealth(damage);
             }
 
             Destroy(gameObject); // 销毁攻击物体

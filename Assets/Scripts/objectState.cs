@@ -8,15 +8,17 @@ public class ObjectState : MonoBehaviour
     public float CurrentHealth { get; private set; } // 使用属性访问currentHealth
     public float initialHealth = 3; // 初始生命值
     public float moveSpeed; // 移动速度
-    public int cost;
+    public int cost;//费用
     public float attackRange = 5f; // 攻击范围
-    public float enmityRange = 5f;
+    public float enmityRange = 5f;//仇恨范围
+    public float attack = 1f;//攻击力
+    public float defense = 0.8f;//防御力,0-1之间
     public GameObject attackPrefab; // 攻击物体的预制体
     public float attackInterval = 1f; // 攻击间隔，单位为秒
     private float lastAttackTime = 0f; // 上次攻击时间
     private bool canAttack = true; // 标记是否可以进行攻击
-    private float closestDistance = 100;
-    private GameObject closestEnemy;
+    private float closestDistance = 100;//与最近地方单位的距离
+    private GameObject closestEnemy;//最近的地方单位
     private float currentHealth; // 当前生命值
     private NavMeshAgent agent; // 获取物体的 NavMeshAgent 组件
     private Vector3 originalMoveTarget; //移动目标
@@ -69,17 +71,17 @@ public class ObjectState : MonoBehaviour
                 {
                     if (closestEnemy != null)
                     {
-                        Attack(closestEnemy);
+                        Attack(closestEnemy);//攻击最近的地方单位
                     }
                     else
                     {
-                        Attack(collider.gameObject);
+                        Attack(collider.gameObject);//有时正在攻击的地方单位死亡，重新获取需要时间，避免发呆，随机攻击
                     }
 
                     lastAttackTime = Time.time; // 更新上次攻击时间
                 }
             }
-            else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))
+            else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))//另一方的攻击逻辑
             {
                 float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position); // 计算与敌人的距离
                 if (distanceToEnemy < closestDistance)
@@ -103,34 +105,27 @@ public class ObjectState : MonoBehaviour
                 }
             }
         }
-        if (!foundEnemy)
+        if (!foundEnemy)//被敌方单位吸引到仇恨，向其移动
         {
             agent.SetDestination(originalMoveTarget);
         }
-        if (!isAttacking)
+        if (!isAttacking)//未攻击，恢复正常速度
         {
             agent.speed = moveSpeed;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if ((collision.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red")) ||
-            (collision.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue")))
-        {
-            DecreaseHealth();
-        }
-    }
 
     void Attack(GameObject target)
     {
         GameObject attackInstance = Instantiate(attackPrefab, transform.position, Quaternion.identity);
         attackInstance.GetComponent<AttackObject>().SetTarget(target);
+        attackInstance.GetComponent<AttackObject>().damage = attack;
     }
 
-    public void DecreaseHealth()
+    public void DecreaseHealth(float damage)//减少生命值
     {
-        currentHealth--; // 生命值减一
+        currentHealth -= damage * defense;
         UpdateHealth(); // 更新生命值
     }
 
