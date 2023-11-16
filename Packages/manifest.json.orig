@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "com.h8man.2d.navmeshplus": "file:D:/dload/NavMeshPlus",
+<<<<<<< HEAD
+=======
+    "com.h8man.2d.navmeshplus": "file:Packages/NavMeshPlus",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.2d": "2.0.0",
@@ -8,10 +10,8 @@
     "com.unity.ide.visualstudio": "2.0.21",
     "com.unity.probuilder": "5.0.7",
     "com.unity.test-framework": "1.3.9",
+>>>>>>> upstream/main
     "com.unity.textmeshpro": "3.0.6",
-    "com.unity.timeline": "1.8.2",
-    "com.unity.ugui": "1.0.0",
-    "com.unity.visualscripting": "1.8.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

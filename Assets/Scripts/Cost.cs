@@ -5,7 +5,7 @@ using TMPro;
 public class CostSystem : MonoBehaviour
 {
     public TextMeshProUGUI costText; // 如果使用的是TextMeshPro组件，使用TextMeshProUGUI类型
-
+    public Slider costSlider;
     public int currentCost = 0;
     private float costIncreaseRate = 1.0f;
     private const int maxCost = 10;
@@ -19,6 +19,7 @@ public class CostSystem : MonoBehaviour
             timer = 0.0f;
             IncreaseCost();
             UpdateCostText();
+            UpdateCostSlider();
         }
     }
 
@@ -33,5 +34,10 @@ public class CostSystem : MonoBehaviour
     public void UpdateCostText()
     {
         costText.text = "费用: \n" + currentCost.ToString(); // 更新UI Text显示的文本内容
+    }
+    
+    public void UpdateCostSlider()
+    {
+        costSlider.value = currentCost; // 更新费用条的值
     }
 }
