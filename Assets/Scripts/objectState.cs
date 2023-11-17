@@ -17,7 +17,7 @@ public class ObjectState : MonoBehaviour
     public float attackInterval = 1f; // 攻击间隔，单位为秒
     private float lastAttackTime = 0f; // 上次攻击时间
     private bool canAttack = true; // 标记是否可以进行攻击
-    private float closestDistance = 100;//与最近地方单位的距离
+    private float closestDistance = 100;//与最近敌方单位的距离
     private GameObject closestEnemy;//最近的地方单位
     private float currentHealth; // 当前生命值
     private NavMeshAgent agent; // 获取物体的 NavMeshAgent 组件
