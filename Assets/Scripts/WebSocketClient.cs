@@ -1,7 +1,7 @@
 using UnityEngine;
 using WebSocketSharp;
 
-public class WebSocketClientTest : MonoBehaviour
+public class WebSocketClient : MonoBehaviour
 {
     private WebSocket ws;
     private string roomID = "1"; // 默认房间号为1，您可以根据需要进行修改
