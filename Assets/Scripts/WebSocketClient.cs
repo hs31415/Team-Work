@@ -1,60 +1,82 @@
+using System.Collections;
 using UnityEngine;
-using WebSocketSharp;
+using NativeWebSocket;
+using System.Threading.Tasks;
+using System;
 
-public class WebSocketClient : MonoBehaviour
+public class Connection : MonoBehaviour
 {
-    private WebSocket ws;
-    private string roomID = "1"; // 默认房间号为1，您可以根据需要进行修改
+    WebSocket websocket;
 
-    private void Awake()
+    // Start is called before the first frame update
+    // Start is called before the first frame update
+    void Start()
     {
-        // 根据输入的房间号构建WebSocket连接地址
-        string url = "ws://10.133.18.99:60001"; // 假设玩家标识为"player1"
-
-        // 创建WebSocket连接
-        ws = new WebSocket(url);
-
-        // 注册事件处理程序
-        ws.OnOpen += OnWebSocketOpen;
-        ws.OnMessage += OnWebSocketMessage;
-        ws.OnError += OnWebSocketError;
-        ws.OnClose += OnWebSocketClose;
-
-        // 启动连接
-        ws.Connect();
+        ConnectToWebSocket();
     }
-    private void OnDestroy()
+
+    async void ConnectToWebSocket()
     {
-        // 关闭WebSocket连接
-        if (ws != null && ws.IsAlive)
+        websocket = new WebSocket("ws://10.133.28.55:60001/game/1");
+
+        websocket.OnOpen += () =>
         {
-            ws.Close();
+            Debug.Log("Connection open!");
+        };
+
+        websocket.OnError += (e) =>
+        {
+            Debug.Log("Error! " + e);
+        };
+
+        websocket.OnClose += (e) =>
+        {
+            Debug.Log("Connection closed!");
+        };
+
+        websocket.OnMessage += (bytes) =>
+        {
+            Debug.Log("OnMessage!");
+            SendWebSocketMessage();
+        };
+
+        try
+        {
+            await websocket.Connect();
+            // After connecting, start sending messages
+            InvokeRepeating("SendWebSocketMessage", 0.0f, 0.3f);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Exception when connecting: " + e.Message);
         }
     }
 
-    private void OnWebSocketOpen(object sender, System.EventArgs e)
-    {
-        Debug.Log("WebSocket connection opened.");
+    
 
-        // 在连接成功后可以发送消息到服务器
-        ws.Send("Hello server!");
+
+
+
+    void Update()
+    {
+        
     }
 
-    private void OnWebSocketMessage(object sender, MessageEventArgs e)
+    void SendWebSocketMessage()
     {
-        Debug.Log("Received message from server: " + e.Data);
-
-        // 处理从服务器接收的消息
-        // 根据消息内容执行相应的逻辑
+        if (websocket != null && websocket.State == WebSocketState.Open)
+        {
+            // Sending messages
+            websocket.SendText("Hello from the unity client!");
+        }
     }
 
-    private void OnWebSocketError(object sender, ErrorEventArgs e)
+    private void OnApplicationQuit()
     {
-        Debug.LogError("WebSocket error: " + e.Message);
+        if (websocket != null)
+        {
+            websocket.Close().Wait(); // 等待连接关闭
+        }
     }
 
-    private void OnWebSocketClose(object sender, CloseEventArgs e)
-    {
-        Debug.Log("WebSocket connection closed with code: " + e.Code);
-    }
 }
