@@ -6,7 +6,6 @@ public class MeleeRange : MonoBehaviour
 {
     public float attackRange = 5f; // 攻击范围
     public float attack = 1f;//攻击力
-    public float defense = 0.8f;//防御力,0-1之间
     public GameObject attackPrefab; // 攻击物体的预制体
     public float attackInterval = 1f; // 攻击间隔，单位为秒
     private float lastAttackTime = 0f; // 上次攻击时间
