@@ -214,10 +214,7 @@ MonoBehaviour:
   cost: 2
   attackRange: 1
   enmityRange: 5
-  attack: 15
   defense: 0.6
-  attackPrefab: {fileID: 804831201742608621, guid: 1fb8d83e668092d46b52891bf1764cd7, type: 3}
-  attackInterval: 1
 --- !u!114 &194029538643204973
 MonoBehaviour:
   m_ObjectHideFlags: 0
