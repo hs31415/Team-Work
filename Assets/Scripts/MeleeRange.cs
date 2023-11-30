@@ -15,35 +15,33 @@ public class MeleeRange : MonoBehaviour
 
     void Update()
     {
-        bool isAttacking = false;//是否正在攻击
         Collider2D[] attackColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);//攻击范围碰撞检测盒
         foreach (Collider2D collider in attackColliders)//对于进入攻击范围的物体，进行攻击
         {
-            if (collider.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue"))
+            if (CanAttack()) // 检查是否可以攻击
             {
-                isAttacking = true;
-                if (CanAttack()) // 检查是否可以攻击
+                foreach (Collider2D colliders in attackColliders)//对于进入攻击范围的物体，进行攻击
                 {
-                    Attack(collider.gameObject);//有时正在攻击的地方单位死亡，重新获取需要时间，避免发呆，随机攻击
-                    lastAttackTime = Time.time; // 更新上次攻击时间
+                    if (colliders.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue"))
+                    {
+                        Attack(colliders.gameObject);
+                    }
+                    else if (colliders.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))//另一方的攻击逻辑
+                    {
+                        Attack(colliders.gameObject);
+                    }
                 }
-            }
-            else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))//另一方的攻击逻辑
-            {
-                isAttacking = true;
-                if (CanAttack()) // 检查是否可以攻击
-                {
-                    Attack(collider.gameObject);
-                    lastAttackTime = Time.time; // 更新上次攻击时间
-                }
+                lastAttackTime = Time.time; // 更新上次攻击时间
             }
         }
     }
     void Attack(GameObject target)
     {
-        GameObject attackInstance = Instantiate(attackPrefab, transform.position, Quaternion.identity);
-        attackInstance.GetComponent<AttackObject>().SetTarget(target);
-        attackInstance.GetComponent<AttackObject>().damage = attack;
+        ObjectState enemy = target.GetComponent<ObjectState>();
+        if (enemy != null)
+        {
+            enemy.DecreaseHealth(attack);
+        }
     }
     bool CanAttack()
     {
