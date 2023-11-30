@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 971327214105810110}
   - component: {fileID: -3007311781680477812}
   - component: {fileID: 220132187070021536}
+  - component: {fileID: 8626465866897871244}
   m_Layer: 0
   m_Name: obj1
   m_TagString: Untagged
@@ -232,3 +233,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHealth: {fileID: -3007311781680477812}
   HealthBarBackground: {fileID: 7441471260375839134, guid: 1aaaeb9654d82244b83f079a4bbbad62, type: 3}
+--- !u!114 &8626465866897871244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5458951425350613576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e26b50b0f0945749b44f8d60626f068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 1
