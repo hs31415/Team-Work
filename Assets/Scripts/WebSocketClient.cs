@@ -7,17 +7,20 @@ using System;
 public class Connection : MonoBehaviour
 {
     WebSocket websocket;
+    string roomID;
+    string userID;
 
     // Start is called before the first frame update
-    // Start is called before the first frame update
-    void Start()
+    async void Start()
     {
-        ConnectToWebSocket();
+        DontDestroyOnLoad(gameObject);
+        await ConnectToWebSocket();
     }
 
-    async void ConnectToWebSocket()
+
+    async Task ConnectToWebSocket()
     {
-        websocket = new WebSocket("ws://10.133.28.55:60001/game/1");
+        websocket = new WebSocket("ws://10.194.4.153:60001/game");
 
         websocket.OnOpen += () =>
         {
@@ -36,15 +39,15 @@ public class Connection : MonoBehaviour
 
         websocket.OnMessage += (bytes) =>
         {
-            Debug.Log("OnMessage!");
-            SendWebSocketMessage();
+            // 解析从服务器接收的消息
+            var message = System.Text.Encoding.UTF8.GetString(bytes);
+            Debug.Log("Received Message: " + message);
+            HandleMessage(message);
         };
 
         try
         {
             await websocket.Connect();
-            // After connecting, start sending messages
-            InvokeRepeating("SendWebSocketMessage", 0.0f, 0.3f);
         }
         catch (Exception e)
         {
@@ -52,31 +55,79 @@ public class Connection : MonoBehaviour
         }
     }
 
-    
-
-
-
-
-    void Update()
+    void HandleMessage(string message)
     {
-        
+        // 解析 JSON 消息
+        var jsonMessage = JsonUtility.FromJson<ServerMessage>(message);
+
+        // 根据消息类型执行操作
+        switch (jsonMessage.type)
+        {
+            case "UserInfo":
+                // 保存分配的房间 ID 和用户 ID
+                roomID = jsonMessage.room_id;
+                userID = jsonMessage.user_id;
+                Debug.Log("Assigned Room ID: " + roomID + " User ID: " + userID);
+                break;
+            case "Error":
+                // 处理错误信息
+                Debug.LogError("Error: " + jsonMessage.message);
+                break;
+                // 添加其他消息类型的处理逻辑...
+        }
     }
 
-    void SendWebSocketMessage()
+    // 用于解析 JSON 消息的辅助类
+    [Serializable]
+    class ServerMessage
+    {
+        public string type;
+        public string room_id;
+        public string user_id;
+        public string message;
+        // 可添加更多字段以匹配服务器发送的消息结构
+    }
+
+    // Update is not needed for WebGL since the library handles it internally
+
+    async Task SendWebSocketMessage(string message)
     {
         if (websocket != null && websocket.State == WebSocketState.Open)
         {
-            // Sending messages
-            websocket.SendText("Hello from the unity client!");
+            try
+            {
+                // 异步发送消息并等待其完成
+                await websocket.SendText(message);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error when sending message: " + e.Message);
+                // 可以在这里添加重连逻辑
+            }
         }
     }
 
-    private void OnApplicationQuit()
+
+    async Task CloseWebSocket()
     {
-        if (websocket != null)
+        if (websocket != null && websocket.State == WebSocketState.Open)
         {
-            websocket.Close().Wait(); // �ȴ����ӹر�
+            try
+            {
+                // 异步关闭连接并等待其完成
+                await websocket.Close();
+            }
+            catch (Exception e)
+            {
+                // 在这里处理关闭连接时的任何异常
+                Debug.LogError("Error when closing WebSocket: " + e.Message);
+            }
         }
     }
 
+    void OnDestroy()
+    {
+        // 当对象被销毁时关闭 WebSocket
+        CloseWebSocket().Wait(); // 确保异步操作完成
+    }
 }
