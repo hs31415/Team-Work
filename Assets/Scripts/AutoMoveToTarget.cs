@@ -5,7 +5,6 @@ public class AutoMoveToTarget : MonoBehaviour
 {
     public Transform target; // 目标位置
     public float moveSpeed; // 移动速度
-
     private NavMeshAgent navMeshAgent;
 
     void Start()

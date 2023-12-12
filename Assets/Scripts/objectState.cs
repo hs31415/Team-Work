@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class ObjectState : MonoBehaviour
 {
+    public int style;//1、兵种 2、法术 3、建筑 4、基地
     public event Action<float> OnHealthChanged; // 定义生命值变化事件
     public float CurrentHealth { get; private set; } // 使用属性访问currentHealth
     public float initialHealth = 3; // 初始生命值
@@ -28,61 +29,69 @@ public class ObjectState : MonoBehaviour
 
     void Update()
     {
-        if (!SetTarget)
+        if (style == 1)
         {
-            SetTarget = true;
-            originalMoveTarget = agent.destination;
-        }
-        bool foundEnemy = false;//是否发现敌人
-        bool isAttacking = false;//是否正在攻击
-        Collider2D[] attackColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);//攻击范围碰撞检测盒
-        Collider2D[] enmityColliders = Physics2D.OverlapCircleAll(transform.position, enmityRange);//仇恨范围碰撞检测盒
-        foreach (Collider2D collider in enmityColliders)//对于进入仇恨范围的敌方物体，向其移动但不进行攻击
-        {
-            if (collider.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue"))
+            if (!SetTarget)
             {
-                foundEnemy = true;
-                agent.SetDestination(collider.gameObject.transform.position);//把物体移动目标设定为敌方物
+                SetTarget = true;
+                originalMoveTarget = agent.destination;
             }
-            else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))
+            bool foundEnemy = false;//是否发现敌人
+            bool isAttacking = false;//是否正在攻击
+            Collider2D[] attackColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);//攻击范围碰撞检测盒
+            Collider2D[] enmityColliders = Physics2D.OverlapCircleAll(transform.position, enmityRange);//仇恨范围碰撞检测盒
+            foreach (Collider2D collider in enmityColliders)//对于进入仇恨范围的敌方物体，向其移动但不进行攻击
             {
-                foundEnemy = true;
-                agent.SetDestination(collider.gameObject.transform.position);//把物体移动目标设定为敌方物体
-            }
-        }
-        foreach (Collider2D collider in attackColliders)//对于进入攻击范围的物体，进行攻击，具体攻击逻辑归属于另一个脚本，方便进行不同的攻击逻辑
-        {
-            if (collider.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue"))
-            {
-                float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position); // 计算与敌人的距离
-                if (distanceToEnemy < closestDistance)
+                if (collider.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue"))
                 {
-                    closestDistance = distanceToEnemy;
-                    closestEnemy = collider.gameObject; // 更新最近的敌人
+                    foundEnemy = true;
+                    agent.SetDestination(collider.gameObject.transform.position);//把物体移动目标设定为敌方物
                 }
-                isAttacking = true;
-                agent.speed = 0;
-            }
-            else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))//另一方的攻击逻辑
-            {
-                float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position); // 计算与敌人的距离
-                if (distanceToEnemy < closestDistance)
+                else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))
                 {
-                    closestDistance = distanceToEnemy;
-                    closestEnemy = collider.gameObject; // 更新最近的敌人
+                    foundEnemy = true;
+                    agent.SetDestination(collider.gameObject.transform.position);//把物体移动目标设定为敌方物体
                 }
-                isAttacking = true;
-                agent.speed = 0;
+            }
+            foreach (Collider2D collider in attackColliders)//对于进入攻击范围的物体，进行攻击，具体攻击逻辑归属于另一个脚本，方便进行不同的攻击逻辑
+            {
+                if (collider.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue"))
+                {
+                    float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position); // 计算与敌人的距离
+                    if (distanceToEnemy < closestDistance)
+                    {
+                        closestDistance = distanceToEnemy;
+                        closestEnemy = collider.gameObject; // 更新最近的敌人
+                    }
+                    isAttacking = true;
+                    agent.speed = 0;
+                }
+                else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))//另一方的攻击逻辑
+                {
+                    float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position); // 计算与敌人的距离
+                    if (distanceToEnemy < closestDistance)
+                    {
+                        closestDistance = distanceToEnemy;
+                        closestEnemy = collider.gameObject; // 更新最近的敌人
+                    }
+                    isAttacking = true;
+                    agent.speed = 0;
+                }
+            }
+            if (!foundEnemy)//被敌方单位吸引到仇恨，向其移动
+            {
+                agent.SetDestination(originalMoveTarget);
+            }
+            if (!isAttacking)//未攻击，恢复正常速度
+            {
+                agent.speed = moveSpeed;
             }
         }
-        if (!foundEnemy)//被敌方单位吸引到仇恨，向其移动
+        else if (style == 2)
         {
-            agent.SetDestination(originalMoveTarget);
+
         }
-        if (!isAttacking)//未攻击，恢复正常速度
-        {
-            agent.speed = moveSpeed;
-        }
+
     }
 
     public void DecreaseHealth(float damage)//减少生命值

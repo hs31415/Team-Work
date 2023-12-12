@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 5252b5e00ac2f40468d9a557c91fbfee
+guid: cd87b01351cad0d41a2acdf7e3df44c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4373456931157807961
-    second: "\u9F99\u4EBA_0"
+      213: -3938417147762288989
+    second: "\u7EA2\u8272\u57FA\u5730_0"
+  - first:
+      213: 2656745497367213326
+    second: "\u7EA2\u8272\u57FA\u5730_1"
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -83,31 +86,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -122,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u9F99\u4EBA_0"
+      name: "\u7EA2\u8272\u57FA\u5730_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 848
-        height: 1424
+        x: 55
+        y: 23
+        width: 702
+        height: 740
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,8 +127,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 953912648e3a1bc30800000000000000
-      internalID: 4373456931157807961
+      spriteID: 3a65252887ee759c0800000000000000
+      internalID: -3938417147762288989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u7EA2\u8272\u57FA\u5730_1"
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 0
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e05f03d24f7aed420800000000000000
+      internalID: 2656745497367213326
       vertices: []
       indices: 
       edges: []
@@ -152,8 +164,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      "\u9F99\u4EBA_0": 4373456931157807961
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

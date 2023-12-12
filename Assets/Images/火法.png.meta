@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 976f9dce936e42b43b913000c4a7432c
+guid: 5eac2ba3a9a4aff4486a4c503c26cfa5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -918461698617054521
-    second: "\u51B0\u9B54\u6CD5\u5E08_0"
+      213: -8271232529120373694
+    second: "\u706B\u6CD5_0"
+  - first:
+      213: 8452888932911451846
+    second: "\u706B\u6CD5_1"
+  - first:
+      213: -1486296184948262200
+    second: "\u706B\u6CD5_2"
+  - first:
+      213: -3475031447851480852
+    second: "\u706B\u6CD5_3"
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -83,31 +92,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -122,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u51B0\u9B54\u6CD5\u5E08_0"
+      name: "\u706B\u6CD5_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 848
-        height: 1424
+        x: 8
+        y: 398
+        width: 14
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,8 +133,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7cae02a83f7f043f0800000000000000
-      internalID: -918461698617054521
+      spriteID: 244df1f66dda63d80800000000000000
+      internalID: -8271232529120373694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u706B\u6CD5_1"
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 16
+        width: 377
+        height: 637
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ce840cf2b1be4570800000000000000
+      internalID: 8452888932911451846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u706B\u6CD5_2"
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 321
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8caf3299e7d9f5be0800000000000000
+      internalID: -1486296184948262200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u706B\u6CD5_3"
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 305
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce840874f4536cfc0800000000000000
+      internalID: -3475031447851480852
       vertices: []
       indices: 
       edges: []
@@ -152,8 +212,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      "\u51B0\u9B54\u6CD5\u5E08_0": -918461698617054521
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

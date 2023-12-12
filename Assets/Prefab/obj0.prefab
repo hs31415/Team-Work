@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 816334764453441447}
   - component: {fileID: 8764518183713973561}
   - component: {fileID: 3271518778522281826}
-  - component: {fileID: 1026610977870501191}
   m_Layer: 0
   m_Name: obj0
   m_TagString: Untagged
@@ -210,15 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92428efe5c026cd41857a52aed519a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  style: 1
   initialHealth: 3
   moveSpeed: 0
   cost: 0
   attackRange: 5
   enmityRange: 5
-  attack: 1
   defense: 0.8
-  attackPrefab: {fileID: 804831201742608621, guid: 1fb8d83e668092d46b52891bf1764cd7, type: 3}
-  attackInterval: 1
 --- !u!114 &3271518778522281826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,16 +230,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHealth: {fileID: 8764518183713973561}
   HealthBarBackground: {fileID: 7441471260375839134, guid: 1aaaeb9654d82244b83f079a4bbbad62, type: 3}
---- !u!114 &1026610977870501191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647600381034238450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e26b50b0f0945749b44f8d60626f068, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 0

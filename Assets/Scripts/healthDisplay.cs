@@ -11,10 +11,19 @@ public class HealthDisplay : MonoBehaviour
     {
 
         objectHealth.OnHealthChanged += UpdateHealthDisplay; // 在生命值变化事件中订阅更新显示方法
+        if (objectHealth.style == 1)
+        {
+            // 实例化血条预制件，并设置其父对象为当前物体
+            healthBarInstance = Instantiate(HealthBarBackground, Vector3.zero, Quaternion.identity, transform);
+            healthBarInstance.transform.localPosition = new Vector3(0, -1f, 0);
+        }
+        else if (objectHealth.style == 4)
+        {
+            // 实例化血条预制件，并设置其父对象为当前物体
+            healthBarInstance = Instantiate(HealthBarBackground, Vector3.zero, Quaternion.identity, transform);
+            healthBarInstance.transform.localPosition = new Vector3(0, -4f, 0);
+        }
 
-        // 实例化血条预制件，并设置其父对象为当前物体
-        healthBarInstance = Instantiate(HealthBarBackground, Vector3.zero, Quaternion.identity, transform);
-        healthBarInstance.transform.localPosition = new Vector3(0, -1f, 0);
 
     }
 
