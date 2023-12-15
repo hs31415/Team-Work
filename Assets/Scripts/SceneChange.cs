@@ -13,4 +13,8 @@ public class jump : MonoBehaviour
     {
         SceneManager.LoadScene("InfoScene");
     }
+    public void StartScene()
+    {
+        Debug.Log(123);
+    }
 }

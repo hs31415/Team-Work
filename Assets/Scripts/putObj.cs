@@ -4,6 +4,7 @@ public class SpawnAndMove : MonoBehaviour
 {
     public GameObject prefab; // 预设体
     public Transform target; // 目标位置
+    public Transform home;//己方基地
     public TextMeshProUGUI textObject; // 通过在编辑器中拖动来设置Text对象
     public Canvas canvas; // Canvas对象的引用
     public int Cost;
@@ -25,7 +26,7 @@ public class SpawnAndMove : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0)) // 当鼠标左键点击时
         {
-            if (prefab.name == "obj0")
+            if (prefab.name == "obj0" || target == null || home == null)
             {
                 return;
             }
