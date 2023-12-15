@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 779873291147396307, guid: 73ab4d21d97800941ab06d1cd4bd2212, type: 3}
       propertyPath: m_Name
-      value: Square Variant
+      value: showWinner
       objectReference: {fileID: 0}
     - target: {fileID: 795923092188580419, guid: 73ab4d21d97800941ab06d1cd4bd2212, type: 3}
       propertyPath: m_Pivot.x
@@ -134,7 +134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5005324393087346981, guid: 73ab4d21d97800941ab06d1cd4bd2212, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5916212200611458888, guid: 73ab4d21d97800941ab06d1cd4bd2212, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

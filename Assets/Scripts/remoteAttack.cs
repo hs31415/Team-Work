@@ -8,7 +8,13 @@ public class remoteAttack : MonoBehaviour
     public float attack = 1f;//攻击力
     public GameObject attackPrefab; // 攻击物体的预制体
     public float attackInterval = 1f; // 攻击间隔，单位为秒
+    public int style = 0;//0为单体;1为范围
+    public float splash = 0f;//攻击溅射范围
     private float lastAttackTime = 0f; // 上次攻击时间
+    private GameObject closestEnemy;//最近的地方单位
+    private float closestDistance = 100;//与最近敌方单位的距离
+
+
     void Start()
     {
     }
@@ -20,17 +26,29 @@ public class remoteAttack : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("Red") && gameObject.CompareTag("Blue"))
             {
+                float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position); // 计算与敌人的距离
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = collider.gameObject; // 更新最近的敌人
+                }
                 if (CanAttack())
                 {
-                    Attack(collider.gameObject);
+                    Attack(closestEnemy);
                     lastAttackTime = Time.time; // 更新上次攻击时间
                 }
             }
             else if (collider.gameObject.CompareTag("Blue") && gameObject.CompareTag("Red"))//另一方的攻击逻辑
             {
+                float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position); // 计算与敌人的距离
+                if (distanceToEnemy < closestDistance)
+                {
+                    closestDistance = distanceToEnemy;
+                    closestEnemy = collider.gameObject; // 更新最近的敌人
+                }
                 if (CanAttack())
                 {
-                    Attack(collider.gameObject);
+                    Attack(closestEnemy);
                     lastAttackTime = Time.time; // 更新上次攻击时间
                 }
             }
@@ -41,6 +59,8 @@ public class remoteAttack : MonoBehaviour
         GameObject attackInstance = Instantiate(attackPrefab, transform.position, Quaternion.identity);
         attackInstance.GetComponent<AttackObject>().SetTarget(target);
         attackInstance.GetComponent<AttackObject>().damage = attack;
+        attackInstance.GetComponent<AttackObject>().style = style;
+        attackInstance.GetComponent<AttackObject>().splash = splash;
     }
     bool CanAttack()
     {

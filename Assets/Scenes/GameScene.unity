@@ -1612,6 +1612,7 @@ GameObject:
   - component: {fileID: 542145098}
   - component: {fileID: 542145097}
   - component: {fileID: 542145100}
+  - component: {fileID: 542145101}
   m_Layer: 0
   m_Name: backGround
   m_TagString: Untagged
@@ -1712,6 +1713,23 @@ MonoBehaviour:
   m_Area: 2
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &542145101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542145096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093b61359527467428a7f91990cabd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 542145096}
+  blueBase: {fileID: 1800268999}
+  redBase: {fileID: 207294475}
+  victoryPrefab: {fileID: 166709386894782551, guid: ca0bd31e29d9ffa45a037b971cba2b7a, type: 3}
+  canvasTransform: {fileID: 1382938391}
 --- !u!1 &571989409
 GameObject:
   m_ObjectHideFlags: 0

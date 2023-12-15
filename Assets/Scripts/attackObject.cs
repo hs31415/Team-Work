@@ -6,6 +6,8 @@ public class AttackObject : MonoBehaviour
     private float moveSpeed = 5f; // 移动速度
 
     public float damage;
+    public int style;
+    public float splash;
 
     public void SetTarget(GameObject newTarget)
     {
@@ -34,12 +36,32 @@ public class AttackObject : MonoBehaviour
         {
             // 在这里处理攻击命中目标后的逻辑
             ObjectState enemy = target.GetComponent<ObjectState>();
-            if (enemy != null)
+            if (style == 0)
             {
-                enemy.DecreaseHealth(damage);
+                if (enemy != null)
+                {
+                    enemy.DecreaseHealth(damage);
+                }
+
+                Destroy(gameObject); // 销毁攻击物体
+            }
+            else if (style == 1)
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(target.transform.position, splash);
+                foreach (Collider2D collider in colliders)
+                {
+                    if (collider.gameObject.tag == target.tag)
+                    {
+                        ObjectState otherEnemy = collider.gameObject.GetComponent<ObjectState>();
+                        if (otherEnemy != null)
+                        {
+                            otherEnemy.DecreaseHealth(damage);
+                        }
+                    }
+                }
+                Destroy(gameObject); // 销毁攻击物体
             }
 
-            Destroy(gameObject); // 销毁攻击物体
         }
     }
 }

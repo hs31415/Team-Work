@@ -100,9 +100,13 @@ public class ObjectState : MonoBehaviour
         UpdateHealth(); // 更新生命值
     }
 
+    public float getHealth()
+    {
+        return currentHealth;
+    }
     void UpdateHealth()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && style != 4)
         {
             Destroy(gameObject); // 生命值归零时销毁对象
         }
