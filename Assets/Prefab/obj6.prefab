@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6811585127663252529}
   - component: {fileID: 576867452008919341}
   - component: {fileID: 5005929533172647105}
+  - component: {fileID: 7816098038376480082}
   m_Layer: 0
   m_Name: obj6
   m_TagString: Untagged
@@ -230,3 +231,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectHealth: {fileID: 576867452008919341}
   HealthBarBackground: {fileID: 7441471260375839134, guid: 1aaaeb9654d82244b83f079a4bbbad62, type: 3}
+--- !u!114 &7816098038376480082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008085085679863357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926294d256f0242b05d71fbf35d63d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 5
+  attack: 1
+  attackPrefab: {fileID: 804831201742608621, guid: 1fb8d83e668092d46b52891bf1764cd7, type: 3}
+  attackInterval: 1
