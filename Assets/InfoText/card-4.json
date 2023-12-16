@@ -1,10 +1,10 @@
 {
-  "name": "卡牌四",
+  "name": "骑士",
   "type": "兵种",
   "attack": "1",
   "defense": "0.3",
   "attack_range": "5",
   "move_speed": "1",
-  "cost": "1",
-  "description": "这是一段卡牌信息的描述，以后这里可能会有一些比较中二的话。"
+  "cost": "4",
+  "description": "谷地的贵族，将荣耀看的比生命还要重要的人。"
 }

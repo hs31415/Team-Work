@@ -1,10 +1,10 @@
 {
-  "name": "卡牌二",
-  "type": "法术",
+  "name": "弓箭手",
+  "type": "兵种",
   "attack": "1",
   "defense": "0.3",
   "attack_range": "5",
   "move_speed": "1",
-  "cost": "1",
-  "description": "这是一段卡牌信息的描述，以后这里可能会有一些比较中二的话。"
+  "cost": "2",
+  "description": "南方雨林中的猎人，在狩猎和与野兽的搏杀中锻炼出强健的身体，良好的射术。"
 }
