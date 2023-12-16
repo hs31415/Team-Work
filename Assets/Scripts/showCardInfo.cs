@@ -76,7 +76,7 @@ public class SquareClickHandler : MonoBehaviour
                         if (data.type == "兵种")
                         {
                             textMesh.text =
-                                "卡牌名称: " + data.name + "(" + data.type + ")"
+                                "卡牌名称: " + data.name 
                                 + "\n攻击力: " + data.attack
                                 + "\n防御力: " + data.defense
                                 + "\n攻击范围: " + data.attack_range
@@ -87,7 +87,7 @@ public class SquareClickHandler : MonoBehaviour
                         else if (data.type == "法术")
                         {
                             textMesh.text =
-                                "卡牌名称: " + data.name + "(" + data.type + ")"
+                                "卡牌名称: " + data.name 
                                 + "\n攻击力: " + data.attack
                                 + "\n防御力: " + data.defense
                                 + "\n攻击范围: " + data.attack_range
@@ -99,7 +99,7 @@ public class SquareClickHandler : MonoBehaviour
                         else if (data.type == "建筑")
                         {
                             textMesh.text =
-                                "卡牌名称: " + data.name + "(" + data.type + ")"
+                                "卡牌名称: " + data.name
                                 + "\n攻击力: " + data.attack
                                 + "\n防御力: " + data.defense
                                 + "\n攻击范围: " + data.attack_range

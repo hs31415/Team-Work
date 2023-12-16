@@ -1,10 +1,10 @@
 {
-  "name": "卡牌六",
-  "type": "法术",
+  "name": "鱼人",
+  "type": "兵种",
   "attack": "1",
   "defense": "0.3",
   "attack_range": "5",
   "move_speed": "1",
-  "cost": "1",
-  "description": "这是一段卡牌信息的描述，以后这里可能会有一些比较中二的话。"
+  "cost": "6",
+  "description": "来自大海的神秘生物，有人说他们是森林之子的后裔，也有人说他们是光之王的眷族。"
 }
