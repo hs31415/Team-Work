@@ -2909,6 +2909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1647600381034238450, guid: 7f8ff33d2946a954b83387218e74c9eb, type: 3}
   target: {fileID: 207294476}
+  home: {fileID: 1800269000}
   textObject: {fileID: 1849974998}
   canvas: {fileID: 1382938390}
   Cost: 0
@@ -3789,7 +3790,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2812869190295402728, guid: d0d300d38f78d854da81dbe765351caf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4486,6 +4487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1647600381034238450, guid: 7f8ff33d2946a954b83387218e74c9eb, type: 3}
   target: {fileID: 1800269000}
+  home: {fileID: 207294476}
   textObject: {fileID: 1534247872}
   canvas: {fileID: 1382938390}
   Cost: 0
